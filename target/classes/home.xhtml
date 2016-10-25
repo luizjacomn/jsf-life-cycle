@@ -38,29 +38,27 @@ body {
 			<div class="ui-md-2 ui-lg-2"></div>
 
 			<div class="ui-g-12 ui-md-8 ui-lg-8 ui-fluid">
-				<p:panel styleClass="panel">
+				<div class="panel">
 					<div align="center"><h2>Simulação do Ciclo de Vida JSF</h2></div>
 
 					<div align="center">
 						<h:panelGrid columns="1" style="width: 50%" cellspacing="10">
-							<p:outputLabel value="Insira um valor para teste" for="campo" />
-							<p:focus for="campo" />
-							<p:inputText id="campo" binding="#{myBean.inputComponent}"
+							<h:outputLabel value="Insira um valor para teste" for="campo" />
+							<h:inputText id="campo" binding="#{myBean.inputComponent}"
 								value="#{myBean.inputValue}" styleClass="ui-lg-2"
 								valueChangeListener="#{myBean.inputChanged}">
 								<f:converter converterId="myConverter" />
 								<f:validator validatorId="myValidator" />
-							</p:inputText>
+							</h:inputText>
 
-							<p:commandButton value="ENVIAR" icon="fa fa-send"
-								styleClass="ui-lg-2 botao" action="#{myBean.action}"
-								update="result campo" />
+							<h:commandButton value="ENVIAR"
+								styleClass="ui-lg-2 botao" action="#{myBean.action}" />
 
 							<h:outputText id="result" binding="#{myBean.outputComponent}"
 								value="#{myBean.outputValue}" />
 						</h:panelGrid>
 					</div>
-				</p:panel>
+				</div>
 			</div>
 
 			<div class="ui-md-2 ui-lg-2"></div>
