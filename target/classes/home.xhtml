@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Simulação</title>
+	<style>
+body {
+	background: #eafcff;
+}
+
+.panel {
+	border-radius: 0;
+	border: 2px dashed #333;
+}
+
+.botao {
+	background: #0086e0 !important;
+	color: white !important;
+	font-weight: bold;
+	text-transform: uppercase;
+	border: none !important;
+	border-radius: 0 !important;
+}
+
+.botao:hover {
+	background: #015791 !important;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+		<div class="ui-g">
+			<div class="ui-md-2 ui-lg-2"></div>
+
+			<div class="ui-g-12 ui-md-8 ui-lg-8 ui-fluid">
+				<p:panel styleClass="panel">
+					<div align="center"><h2>Simulação do Ciclo de Vida JSF</h2></div>
+
+					<div align="center">
+						<h:panelGrid columns="1" style="width: 50%" cellspacing="10">
+							<p:outputLabel value="Insira um valor para teste" for="campo" />
+							<p:focus for="campo" />
+							<p:inputText id="campo" binding="#{myBean.inputComponent}"
+								value="#{myBean.inputValue}" styleClass="ui-lg-2"
+								valueChangeListener="#{myBean.inputChanged}">
+								<f:converter converterId="myConverter" />
+								<f:validator validatorId="myValidator" />
+							</p:inputText>
+
+							<p:commandButton value="ENVIAR" icon="fa fa-send"
+								styleClass="ui-lg-2 botao" action="#{myBean.action}"
+								update="result campo" />
+
+							<h:outputText id="result" binding="#{myBean.outputComponent}"
+								value="#{myBean.outputValue}" />
+						</h:panelGrid>
+					</div>
+				</p:panel>
+			</div>
+
+			<div class="ui-md-2 ui-lg-2"></div>
+		</div>
+	</h:form>
+</h:body>
+</html>
